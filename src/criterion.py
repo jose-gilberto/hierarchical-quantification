@@ -65,7 +65,7 @@ def find_best_split(X: np.ndarray, y: np.ndarray, min_samples_leaf: int) -> Tupl
       # left child stats
       n_l = split_idx
       sum_l = y_cumsum[split_idx - 1]
-      
+        
       # right child stats
       n_r = n_samples - n_l
       sum_r = G - sum_l
