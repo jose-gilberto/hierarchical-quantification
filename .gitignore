@@ -16,3 +16,4 @@ data/processed/*
 
 # System
 .DS_Store
+.vscode/
