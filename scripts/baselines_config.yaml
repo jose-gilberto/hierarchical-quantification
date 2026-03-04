@@ -1,0 +1,18 @@
+# Configurações de Entrada e Saída
+data:
+  train_data: "../data/multi-class/amazon/train.parquet"
+  test_data: "../data/multi-class/amazon/test.parquet"
+  output: "../results/amazon/"
+
+# Configurações do Algoritmo Base e Quantificador
+model:
+  strategy: "lcl"
+  quantifier: "dfy"       # Opções: cc, ac, em, dfy, friedman
+  classifier: "svm"       # Opções: rf, lr, svm
+
+# Configurações do Protocolo de Teste (Artificial Prevalence Protocol)
+app_protocol:
+  n_bags: 500
+  bag_size: 100
+  alpha: 1.0           # Valores < 1.0 aumentam a chance de shifts extremos
+  seed: 42
