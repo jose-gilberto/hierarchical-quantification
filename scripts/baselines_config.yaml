@@ -1,18 +1,32 @@
-# Configurações de Entrada e Saída
-data:
-  train_data: "../data/multi-class/amazon/train.parquet"
-  test_data: "../data/multi-class/amazon/test.parquet"
-  output: "../results/amazon/"
+# input and output files
+train_path: "../data/multi-class/amazon/train.parquet"
+test_path: "../data/multi-class/amazon/test.parquet"
 
-# Configurações do Algoritmo Base e Quantificador
-model:
-  strategy: "lcl"
-  quantifier: "dfy"       # Opções: cc, ac, em, dfy, friedman
-  classifier: "svm"       # Opções: rf, lr, svm
+output_path: "../results/amazon/lql.csv"
+target_column: "label" # Nome da coluna no CSV que contém a hierarquia (ex: Root.A.B)
 
-# Configurações do Protocolo de Teste (Artificial Prevalence Protocol)
-app_protocol:
-  n_bags: 500
-  bag_size: 100
-  alpha: 1.0           # Valores < 1.0 aumentam a chance de shifts extremos
-  seed: 42
+# Configurações de Reprodução e Dados
+random_seed: 42
+bag_size: 200
+n_bags_uniform: 250
+n_bags_extreme: 250
+
+# Estratégia
+strategy: "LQL"
+
+# Modelos a serem testados
+# Certifique-se de que os nomes correspondem aos mapeamentos no script Python
+classifiers:
+  # - "rf"
+  # - "lr"
+  - "svm"
+
+quantifiers:
+  - "cc"
+  - "pcc"
+  - "ac"
+  - "pacc"
+  - "hdy"
+  - "dfy"
+  - "em"
+  - "edy"
