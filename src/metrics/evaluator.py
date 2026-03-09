@@ -3,7 +3,7 @@ from collections import Counter
 
 
 def base_weight_method(level: int) -> float:
-  return 1.0 / level
+  return 1.0
 
 
 class HierarchicalPrevalenceEvaluator:

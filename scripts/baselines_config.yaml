@@ -1,8 +1,8 @@
 # input and output files
-train_path: "../data/multi-class/amazon/train.parquet"
-test_path: "../data/multi-class/amazon/test.parquet"
+train_path: "../data/multi-class/dbpedia/train.parquet"
+test_path: "../data/multi-class/dbpedia/test.parquet"
 
-output_path: "../results/amazon/lql.csv"
+output_path: "../results/dbpedia/lql.csv"
 target_column: "label" # Nome da coluna no CSV que contém a hierarquia (ex: Root.A.B)
 
 # Configurações de Reprodução e Dados
@@ -17,16 +17,16 @@ strategy: "LQL"
 # Modelos a serem testados
 # Certifique-se de que os nomes correspondem aos mapeamentos no script Python
 classifiers:
-  # - "rf"
+  - "rf"
   # - "lr"
-  - "svm"
+  # - "svm"
 
 quantifiers:
-  - "cc"
-  - "pcc"
-  - "ac"
-  - "pacc"
+  # - "cc"
+  # - "pcc"
+  # - "ac"
+  - "pac"
   - "hdy"
   - "dfy"
-  - "em"
+  # - "em"
   - "edy"
